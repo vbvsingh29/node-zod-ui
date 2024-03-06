@@ -1,0 +1,28 @@
+{
+  "name": "node-zod-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vbvsingh29/node-zod-ui.git",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.63",
+    "@types/react-dom": "^18.2.20",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^3.3.4",
+    "axios": "^1.6.7",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-hook-form": "^7.0.0",
+    "swr": "^2.2.5",
+    "zod": "^3.22.4"
+  }
+}
