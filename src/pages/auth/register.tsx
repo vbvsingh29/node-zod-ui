@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TypeOf, object, string } from "zod";
 import { config } from "../../utils/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const createUserSchema = object({
   name: string().min(1, "Name is Required"),
@@ -19,7 +21,9 @@ const createUserSchema = object({
 
 type CreateUserInput = TypeOf<typeof createUserSchema>;
 function RegisterPage() {
+  const navigate = useNavigate();
   const [registerError, setRegisterError] = useState(null);
+
   const {
     register,
     formState: { errors },
@@ -31,11 +35,14 @@ function RegisterPage() {
   const onSubmit = async (values: CreateUserInput) => {
     try {
       await axios.post(`${config.SERVER_ENDPOINT}/api/users`, values);
+      console.log("object");
+      navigate("/");
+      setRegisterError(null);
     } catch (error: any) {
       setRegisterError(error?.message);
     }
   };
-  console.log({ errors });
+
   return (
     <>
       <p>{registerError}</p>
