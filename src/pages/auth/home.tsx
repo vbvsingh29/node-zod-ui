@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { config } from "../../utils/constants";
 import fetcher from "../../utils/fetcher";
+import getGoogleOAuthURL from "../../utils/getGoogleUrl";
 
 interface User {
   _id: string;
@@ -18,7 +19,12 @@ const Home = () => {
   if (data) {
     return <div>Welcome! {data.name}</div>;
   }
-  return <div className="{styles.container}">Please Login</div>;
+  return (
+    <div className="{styles.container}">
+      <a href={getGoogleOAuthURL()}>Login With Google</a>
+      Please Login
+    </div>
+  );
 };
 
 export default Home;
