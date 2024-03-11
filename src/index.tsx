@@ -4,4 +4,4 @@ import RegisterPage from "./pages/auth/register";
 
 const root = createRoot(document.getElementById("app") as HTMLElement);
 
-root.render(<RegisterPage />);
+root.render(<App />);
