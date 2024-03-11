@@ -7,10 +7,10 @@ const getGoogleOAuthURL = () => {
     client_id: config.GOOGLE_CLIENT_ID,
     access_type: "offline",
     response_type: "code",
-    prompt: "consent",
+    prompt: "consent",  
     scope: [
-      "https://www.google.com/auth/userinfo.profile",
-      "https://www.google.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile",
     ].join(" "),
   };
   console.log({ options });

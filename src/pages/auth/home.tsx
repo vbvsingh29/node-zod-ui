@@ -7,6 +7,7 @@ interface User {
   _id: string;
   email: string;
   name: string;
+  picture: string;
   createdAt: Date;
   updatedAt: Date;
   __v: number;
@@ -17,7 +18,12 @@ interface User {
 const Home = () => {
   const { data } = useSWR<User>(`${config.SERVER_ENDPOINT}/api/me`, fetcher);
   if (data) {
-    return <div>Welcome! {data.name}</div>;
+    return (
+      <div>
+        <div>Welcome! {data.name}</div>
+        <img src={data?.picture} alt=""></img>
+      </div>
+    );
   }
   return (
     <div className="{styles.container}">
